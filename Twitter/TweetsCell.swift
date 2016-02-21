@@ -15,10 +15,10 @@ class TweetsCell: UITableViewCell {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var tweetText: UILabel!
     @IBOutlet weak var timestamp: UILabel!
-    @IBOutlet weak var reply: UIImageView!
-    @IBOutlet weak var retweet: UIImageView!
+    @IBOutlet weak var reply: UIButton!
+    @IBOutlet weak var retweet: UIButton!
     @IBOutlet weak var retweetCount: UILabel!
-    @IBOutlet weak var like: UIImageView!
+    @IBOutlet weak var like: UIButton!
     @IBOutlet weak var likeCount: UILabel!
     
     override func awakeFromNib() {

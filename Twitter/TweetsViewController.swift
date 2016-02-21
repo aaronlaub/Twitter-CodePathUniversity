@@ -25,6 +25,12 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tweetsTableView.rowHeight = UITableViewAutomaticDimension
         tweetsTableView.estimatedRowHeight = 1000
         
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 28, height: 28))
+        imageView.contentMode = .ScaleAspectFit
+        let twitterImage = UIImage(named: "Twitter_logo_blue_48")
+        imageView.image = twitterImage
+        navigationItem.titleView = imageView
+        
         TwitterClient.sharedInstance.homeTimeLine({ (tweets: [Tweet]) -> () in
             self.tweets = tweets
             
@@ -67,8 +73,17 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.fullname.text = tweet.name
         cell.username.text = "@\(tweet.screenName!)"
         cell.tweetText.text = tweet.text
-        cell.retweetCount.text = "\(tweet.retweetCount)"
-        cell.likeCount.text = "\(tweet.favouritesCount)"
+        
+        if tweet.retweetCount != 0 {
+            cell.retweetCount.text = "\(tweet.retweetCount)"
+        } else {
+            cell.retweetCount.text = ""
+        }
+        if tweet.favouritesCount != 0 {
+            cell.likeCount.text = "\(tweet.favouritesCount)"
+        } else {
+            cell.likeCount.text = ""
+        }
         
         //cell.timestamp.text = tweet.timestamp as? String
         

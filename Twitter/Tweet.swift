@@ -24,7 +24,7 @@ class Tweet: NSObject {
         text = dictionary["text"] as? String
         profileImageUrl = dictionary["user"]!["profile_image_url"] as? String
         retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
-        favouritesCount = (dictionary["favourites_count"] as? Int) ?? 0
+        favouritesCount = (dictionary["user"]!["favourites_count"] as? Int) ?? 0
         
         let timestampString = dictionary["created_at"] as? String
         let dateFormatter = NSDateFormatter()
